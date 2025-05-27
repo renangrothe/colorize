@@ -1,11 +1,11 @@
 data
 startup_script.sh
-.ipynb_checkpoints/*
-.virtual_documents/*
+.*
+.*
 checkpoints/*
 !checkpoints/best_model_q_bins.pt
 !checkpoints/best_model_state.pt
-
+evaluation_results/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
