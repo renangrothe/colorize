@@ -44,9 +44,13 @@ source venv/bin/activate
 ```
 
 3. Instale as dependências:
-Instale as bibliotecas necessárias manualmente utilizando o pip.
-```
+Instale as bibliotecas necessárias manualmente.
+``` python
 pip install torch torchvision numpy scikit-image opencv-python matplotlib
+```
+``` bash
+> sudo pacman -S jupyter-server # ou
+> sudo apt get jupyter-server
 ```
 
 ## Como Usar
@@ -54,36 +58,14 @@ O projeto é dividido em duas etapas principais: treinamento do modelo e inferê
 
 ### 1. Treinamento
 
-Para treinar um novo modelo, utilize o script train.py. Você precisará de um dataset de imagens coloridas. O projeto foi treinado originalmente com o ImageWoof, um subconjunto do ImageNet.
+Para treinar um novo modelo, você precisará de um dataset de imagens coloridas. O projeto foi treinado originalmente com o ImageWoof, um subconjunto do ImageNet. Dentro do diretório data, divida o dataset entre data/train e data/val (dataset de validação).
 
-**Comando de exemplo:**
-```
-python train.py --dataset_path /caminho/para/seu/dataset --epochs 100 --batch_size 16 --learning_rate 0.001
-```
-
-**Argumentos:**
-
-- `--dataset_path`: Caminho para a pasta raiz do seu dataset de imagens.
-- `--epochs`: (Opcional) Número de épocas de treinamento. Padrão: 100.
-- `--batch_size`: (Opcional) Tamanho do lote. Padrão: 16.
-- `--learning_rate`: (Opcional) Taxa de aprendizado. Padrão: 0.001.
-
-O modelo treinado e os logs serão salvos em um diretório outputs.
+Os checkpoints do modelo treinado ficarão em checkpoints/
 
 ### 2. Colorização (Inferência)
 
-Para colorizar uma imagem em tons de cinza, utilize o script colorize.py, fornecendo o caminho para a imagem de entrada e para o modelo pré-treinado (.pth).
+Para colorizar uma imagem em tons de cinza, forneça o caminho para a imagem de entrada e para o modelo pré-treinado na seção indicada no jupyter notebook.
 
-**Comando de exemplo:**
-```
-python colorize.py --input_image ./imagens/minha_foto_pb.jpg --model_path ./outputs/modelo_final.pth --output_image ./imagens/minha_foto_colorida.jpg
-```
-
-**Argumentos:**
-
-- `--input_image`: Caminho para a imagem em tons de cinza que você deseja colorir.
-- `--model_path`: Caminho para o arquivo do modelo pré-treinado (.pth).
-- `--output_image`: (Opcional) Caminho onde a imagem colorida será salva. Se não for fornecido, a imagem será exibida na tela.
 
 ## 📊 Resultados
 
